@@ -6,6 +6,13 @@ public class Summary {
 
     private String raw;
 
+    public Summary(String raw) {
+        this.raw = raw;
+    }
+
+    public Summary() {
+    }
+
     public String getRaw() {
         return raw;
     }

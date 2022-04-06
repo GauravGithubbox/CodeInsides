@@ -1,22 +1,18 @@
 package com.knoldus.codeinsights.dto;
 
-public class ActualResponse {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class FInalResponse {
     private Repository repository;
     private Author author;
     private String hash;
 
-    @Override
-    public String toString() {
-        return "FinalResponse{" +
-                "repository=" + repository +
-                ", author=" + author +
-                ", hash='" + hash + '\'' +
-                '}';
-    }
-    public ActualResponse() {
+
+    public FInalResponse() {
     }
 
-    public ActualResponse(Repository repository, Author author, String hash) {
+    public FInalResponse(Repository repository, Author author, String hash) {
         this.repository = repository;
         this.author = author;
         this.hash = hash;
@@ -44,5 +40,14 @@ public class ActualResponse {
 
     public void setHash(String hash) {
         this.hash = hash;
+    }
+
+    @Override
+    public String toString() {
+        return "FinalResponse{" +
+                "repository=" + repository +
+                ", author=" + author +
+                ", hash='" + hash + '\'' +
+                '}';
     }
 }

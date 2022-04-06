@@ -6,6 +6,13 @@ public class Source {
 
    Repository repository;
 
+   public Source(Repository repository) {
+      this.repository = repository;
+   }
+
+   public Source() {
+   }
+
    public Repository getRepository() {
       return repository;
    }

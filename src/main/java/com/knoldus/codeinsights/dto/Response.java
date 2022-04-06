@@ -10,7 +10,28 @@ public class Response {
     private Author author;
     private Destination destination;
     private String state;
+    private PullRequest pull_request;
+    private Update update;
+    private Approval approval;
+    private Comment comment;
 
+
+    public Response(String nickname, Author author, Destination destination, String state, PullRequest pull_request, Update update, Approval approval, Comment comment) {
+        this.nickname = nickname;
+        this.author = author;
+        this.destination = destination;
+        this.state = state;
+        this.pull_request = pull_request;
+        this.update = update;
+        this.approval = approval;
+        this.comment = comment;
+    }
+
+    public Response(Author author, Destination destination, String state) {
+        this.author = author;
+        this.destination = destination;
+        this.state = state;
+    }
 
     public String getNickname() {
         return nickname;
@@ -26,6 +47,7 @@ public class Response {
                 "nickname='" + nickname + '\'' +
                 '}';
     }
+
     public Author getAuthor() {
         return author;
     }
@@ -50,60 +72,56 @@ public class Response {
         this.state = state;
     }
 
-    public Response(Author author, Destination destination, String state) {
+    public Response(String nickname, Author author, Destination destination, String state) {
+        this.nickname = nickname;
         this.author = author;
         this.destination = destination;
         this.state = state;
     }
- PullRequest pull_request;
- Update update;
- Approval approval;
- Comment comment;
 
- public Response() {
- }
+    public Response() {
+    }
 
- public Response(PullRequest pull_request, Update update, Approval approval, Comment comment) {
-  this.pull_request = pull_request;
-  this.update = update;
-  this.approval = approval;
-  this.comment = comment;
- }
-
- public PullRequest getPull_request() {
-  return pull_request;
+    public Response(String nickname, PullRequest pull_request, Update update, Approval approval, Comment comment) {
+        this.nickname = nickname;
+        this.pull_request = pull_request;
+        this.update = update;
+        this.approval = approval;
+        this.comment = comment;
+    }
 
 
-}
+    public PullRequest getPull_request() {
+        return pull_request;
+    }
 
+    public void setPull_request(PullRequest pull_request) {
+        this.pull_request = pull_request;
+    }
 
- public void setPull_request(PullRequest pull_request) {
-  this.pull_request = pull_request;
- }
+    public Update getUpdate() {
+        return update;
+    }
 
- public Update getUpdate() {
-  return update;
- }
+    public void setUpdate(Update update) {
+        this.update = update;
+    }
 
- public void setUpdate(Update update) {
-  this.update = update;
- }
+    public Approval getApproval() {
+        return approval;
+    }
 
- public Approval getApproval() {
-  return approval;
- }
+    public void setApproval(Approval approval) {
+        this.approval = approval;
+    }
 
- public void setApproval(Approval approval) {
-  this.approval = approval;
- }
+    public Comment getComment() {
+        return comment;
+    }
 
- public Comment getComment() {
-  return comment;
- }
-
- public void setComment(Comment comment) {
-  this.comment = comment;
- }
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
 }
 
 

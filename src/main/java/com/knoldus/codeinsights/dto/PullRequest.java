@@ -8,6 +8,9 @@ public class PullRequest {
     private int id;
     private String title;
 
+    public PullRequest() {
+    }
+
     public int getId() {
         return id;
     }
@@ -24,11 +27,20 @@ public class PullRequest {
         this.title = title;
     }
 
+    public PullRequest(int id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "PullRequest{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 '}';
+    }
+
+    public PullRequest(int id) {
+        this.id = id;
     }
 }

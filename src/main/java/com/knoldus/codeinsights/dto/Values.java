@@ -12,6 +12,19 @@ public class Values {
     Source source;
     Summary summary;
 
+    public Values(String state, int id, String updated_on, Author author, Destination destination, Source source,Summary summary) {
+        this.state = state;
+        this.id = id;
+        this.updated_on = updated_on;
+        this.author = author;
+        this.destination = destination;
+        this.source = source;
+        this.summary = summary;
+    }
+
+    public Values() {
+    }
+
     public String getState() {
         return state;
     }

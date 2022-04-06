@@ -3,7 +3,11 @@ package com.knoldus.codeinsights.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.knoldus.codeinsights.dto.*;
+import com.knoldus.codeinsights.dto.FInalResponse;
+import com.knoldus.codeinsights.dto.FilteredResponse;
+import com.knoldus.codeinsights.dto.Response;
+import com.knoldus.codeinsights.dto.Value;
+import com.knoldus.codeinsights.dto.Values;
 import com.knoldus.codeinsights.util.APIConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -140,27 +144,19 @@ public class PullRequestService {
         return valuesDto;
 
     }
-    List<ActualResponse> FinalResponse = new ArrayList<>();
-    public List<ActualResponse> getCommits(String workspace, String repoSlug, int pullRequestId)throws JsonProcessingException {
-        if (workspace == null){
-            log.error("Please provide the workSpace in the URL");
-        }else if( repoSlug==null){
-            log.error("Please provide the repoSlug in the URL");
-        }else if(pullRequestId == 0){
-            log.error("Url does not have pullRequestId");
+
+    List<FInalResponse> FinalResponse = new ArrayList<>();
+
+    public List<FInalResponse> getCommits(String workspace, String repoSlug, int pullRequestId) throws JsonProcessingException {
+
+        ResponseEntity<String> response = restTemplate
+                .getForEntity(BASE_URL + SLASH + workspace + SLASH + repoSlug + PULL_REQUESTS + SLASH + pullRequestId + SLASH + Commits, String.class);
+        JsonNode values = objectMapper.readTree(response.getBody()).path("values");
+        for (int i = 0; i < values.size(); i++) {
+            String actualResponse = values.get(i).toString();
+            FinalResponse.add(objectMapper.readValue(actualResponse, FInalResponse.class));
         }
 
-        else {
-            ResponseEntity<String> response = restTemplate
-                    .getForEntity(BASE_URL + SLASH + workspace + SLASH + repoSlug + PULL_REQUESTS + SLASH + pullRequestId + SLASH + Commits, String.class);
-            System.out.println("checking url"+response);
-            JsonNode values = objectMapper.readTree(response.getBody()).path("values");
-            System.out.println("value we get"+values);
-            for (int i = 0; i < values.size(); i++) {
-                String actualResponse = values.get(i).toString();
-                FinalResponse.add(objectMapper.readValue(actualResponse, ActualResponse.class));
-            }
-        }
         return FinalResponse;
     }
 
@@ -185,7 +181,6 @@ public class PullRequestService {
 
 
         }
-
         return valuesDto;
 
     }
