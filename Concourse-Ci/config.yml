@@ -1,0 +1,11 @@
+# Docker
+docker-hub-email: <Gaurav.srivastav@knoldus.com>
+docker-hub-username: <gauravdockerbox>
+docker-hub-password: <Complex@164>
+docker-hub-repo-name: <gauravdockerbox/codeinsides_image>
+
+# Kubernetes
+server: <<API SERVER URI>>
+namespace: <<NAMESPACE>>
+cad: <<CERT AUTH DATA>>
+token: <<K8 TOKEN>>
