@@ -1,13 +1,15 @@
+---
 resource_types:
-  - name: codeinsides_image
+  - name: pull-request
     type: docker-image
     source:
-      repository: gauravdockerbox/codeinsides_image
-      tag: codeinsides_image
+      repository: teliaoss/github-pr-resource
+
 
 resources:
   - name: spring-boot-service
-    type: git
+    type: pull-request
+    check_every: 10s
     source:
       uri: https://github.com/GauravGithubbox/CodeInsides.git
       branch: master
