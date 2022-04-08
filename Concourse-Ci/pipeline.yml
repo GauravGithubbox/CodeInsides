@@ -5,7 +5,7 @@ resource_types:
     source:
       repository: teliaoss/github-pr-resource
 
-
+# adding 10 seconds timmer
 resources:
   - name: spring-boot-service
     type: pull-request
