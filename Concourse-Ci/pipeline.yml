@@ -13,6 +13,7 @@ resources:
     source:
       uri: https://github.com/GauravGithubbox/CodeInsides.git
       branch: master
+
   - name: spring-boot-service-docker-repository
     type: docker-image
     source:
