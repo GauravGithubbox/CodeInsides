@@ -2,7 +2,7 @@
 docker-hub-email: Gaurav.srivastav@knoldus.com
 docker-hub-username: gauravdockerbox
 docker-hub-password: Complex@164
-docker-hub-repo-name: gauravdockerbox/codeinsides_image
+docker-hub-repo-name: codeinsides_image
 
 # Kubernetes
 server: <<API SERVER URI>>
